@@ -1,0 +1,25 @@
+.navbar-container {
+  padding: 20px;
+  background-color: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-title {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.nav-link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,17 @@
+.cart-icon {
+  display: flex;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.cart-img {
+  width: 22px;
+  height: 22px;
+  object-fit: fill;
+}
+
+.amount-cart {
+  margin-left: 5px;
+  color: black;
+}

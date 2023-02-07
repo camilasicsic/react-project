@@ -1,0 +1,7 @@
+.item-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  font-size: 100px;
+}
