@@ -7,9 +7,10 @@
 }
 
 .navbar-title {
-  margin: 0;
-  padding: 0;
   font-weight: 600;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
 }
 
 .nav-link {
