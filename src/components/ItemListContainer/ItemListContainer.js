@@ -1,8 +1,17 @@
-import React from "react";
-import "./itemListContainer.css";
+import React from 'react';
+import Item from '../Item/Item';
+import './itemListContainer.css';
+import { products } from './products';
 
-const ItemListContainer = ({ greeting }) => {
-  return <div className="item-list-container"> {greeting} </div>;
+const ItemListContainer = ({ category }) => {
+  const filteredProducts = category ? products.filter(prod => prod.category === category) : products;
+  return (
+    <div className='item-list-container'>
+      {filteredProducts.map((product) => (
+        <Item key={product.id} product={product} />
+      ))}
+    </div>
+  );
 };
 
 export default ItemListContainer;
