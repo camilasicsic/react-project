@@ -3,10 +3,10 @@ import "./itemListContainer.css";
 import { products } from "./products";
 import { useParams } from "react-router-dom";
 
-const ItemListContainer = ({ category }) => {
+const ItemListContainer = () => {
   const { categoryId } = useParams();
 
-  const filteredProducts = category
+  const filteredProducts = categoryId
     ? products.filter((item) => item.category === categoryId)
     : products;
 
