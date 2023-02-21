@@ -1,12 +1,17 @@
-import React from 'react';
-import Item from '../Item/Item';
-import './itemListContainer.css';
-import { products } from './products';
+import Item from "../Item/Item";
+import "./itemListContainer.css";
+import { products } from "./products";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ category }) => {
-  const filteredProducts = category ? products.filter(prod => prod.category === category) : products;
+  const { categoryId } = useParams();
+
+  const filteredProducts = category
+    ? products.filter((item) => item.category === categoryId)
+    : products;
+
   return (
-    <div className='item-list-container'>
+    <div className="item-list-container">
       {filteredProducts.map((product) => (
         <Item key={product.id} product={product} />
       ))}
