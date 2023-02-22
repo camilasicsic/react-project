@@ -9,8 +9,8 @@ export const products = [
   },
   {
     id: 2,
-    name: "Iluminador Fenty Beauty",
-    price: 14000,
+    name: "Iluminador líquido ELF",
+    price: 13500,
     stock: 4,
     image: "makeup2.jpg",
     category: "makeup",
