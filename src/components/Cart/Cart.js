@@ -24,21 +24,17 @@ const Cart = () => {
 
   const handleOrder = () => {
     setBuying(true);
-    console.log(cart)
     addOrder(cart, user)
       .then(async (res) => {
-        console.log("done")
         await updateStock(cart);
         setSuccess(true);
         clear();
       })
       .catch((err) => {
-        console.log("err", err)
         setSuccess(false);
         setBuying(false);
       })
       .finally(() => {
-        console.log("finally")
         setBuying(false);
       });
   }

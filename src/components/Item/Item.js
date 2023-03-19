@@ -6,7 +6,6 @@ const Item = ({ product }) => {
   return (
     <div
       className="product-card"
-      onClick={() => console.log("redirije al detalle del producto")}
     >
       <Link to={`/item/${product.id}`}>
         <img

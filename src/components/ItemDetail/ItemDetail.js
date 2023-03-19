@@ -15,7 +15,6 @@ const ItemDetail = () => {
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState();
   const [stock, setStock] = useState(0);
-  console.log("stock", stock);
 
   useEffect(() => {
     setLoading(true);
@@ -23,8 +22,6 @@ const ItemDetail = () => {
       const prod = { id: doc.id, ...doc.data() };
       setProduct(doc.exists() ? prod : null);
       setStock(prod.stock - getAmountInCart(prod.id))
-      console.log("prod.stock", prod.stock)
-      console.log("amountin", getAmountInCart(prod.id))
       setLoading(false);
     });
   }, [id]);

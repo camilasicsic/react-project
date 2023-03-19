@@ -4,7 +4,6 @@ import { UserContext } from '../../context/UserContext';
 
 const PrivateRoute = ({ children }) => {
   const { user } = useContext(UserContext);
-  console.log(user)
   return !user ? <Navigate to='/signIn' /> : children;
 };
 
