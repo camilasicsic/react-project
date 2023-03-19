@@ -1,10 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { UserContext } from "../../context/UserContext";
+import { updateStock } from "../../services/ItemService";
+import { addOrder } from "../../services/OrderService";
 import "./cart.css";
 import CartItem from "./CartItem";
 
 const Cart = () => {
+  const [success, setSuccess] = useState();
+  const [buying, setBuying] = useState();
   const { cart, clear } = useContext(CartContext);
+  const { user } = useContext(UserContext);
+
+  const emptyText = success ? "La compra fue realizada con exito!" : "No hay items en el carrito. Agrega algunos items y vuelve a comprar."
 
   const totalPriceInCart = () => {
     let totalCart = 0;
@@ -14,6 +22,29 @@ const Cart = () => {
     return totalCart;
   };
 
+  const handleOrder = () => {
+    setBuying(true);
+    console.log(cart)
+    addOrder(cart, user)
+      .then(async (res) => {
+        console.log("done")
+        await updateStock(cart);
+        setSuccess(true);
+        clear();
+      })
+      .catch((err) => {
+        console.log("err", err)
+        setSuccess(false);
+        setBuying(false);
+      })
+      .finally(() => {
+        console.log("finally")
+        setBuying(false);
+      });
+  }
+
+
+
   return (
     <div className="cart-container">
       <h2 className="cart-title">CARRITO</h2>
@@ -22,14 +53,21 @@ const Cart = () => {
           <CartItem key={product.id} product={product} />
         ))}
       </div>
-      <div className="cart-checkout">
-        {cart.length > 0 && (
-          <button onClick={clear} className="clear-cart-button">
-            Vaciar carrito
-          </button>
-        )}
-        <div className="cart-total">${totalPriceInCart()} </div>
-      </div>
+      {cart.length > 0 ? (
+        <div className="cart-checkout">
+
+          <>
+            <button onClick={clear} className="clear-cart-button">
+              Vaciar carrito
+            </button>
+            <button onClick={handleOrder} className="clear-cart-button">
+              {buying ? "Finalizando compra..." : "Finalizar compra"}
+            </button>
+            <div className="cart-total">${totalPriceInCart()} </div>
+          </>
+        </div>
+      ) :
+        <h3>{emptyText}</h3>}
     </div>
   );
 };

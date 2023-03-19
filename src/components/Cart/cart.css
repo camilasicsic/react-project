@@ -13,12 +13,14 @@
 .cart-checkout {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 40%;
+  min-width: 500px;
+  margin: 0 auto;
 }
 
 .clear-cart-button {
   margin-top: 30px;
-  margin-left: 370px;
+  /* margin-left: 370px; */
   background-color: #c6c5c5;
   border: none;
   border-radius: 3px;
@@ -28,6 +30,6 @@
 
 .cart-total {
   margin-top: 30px;
-  margin-right: 370px;
+  /* margin-right: 370px; */
   font-weight: bold;
 }

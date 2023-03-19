@@ -24,3 +24,16 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.absolute-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 18px;
+  width: 60px;
+  font-size: 10px;
+  border: none;
+  background-color: #e2b0c9;
+  border-radius: 5px;
+  cursor: pointer;
+}

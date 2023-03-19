@@ -48,8 +48,13 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const getAmountInCart = (itemId) => {
+    const item = cart.find((item) => item.id === itemId);
+    return item ? item.quantity : 0;
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addItem, clear, removeItem }}>
+    <CartContext.Provider value={{ cart, addItem, clear, removeItem, getAmountInCart }}>
       {children}
     </CartContext.Provider>
   );

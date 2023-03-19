@@ -1,0 +1,36 @@
+.title-container {
+  height: 60px;
+  font-size: 30px;
+  color: #444444;
+}
+
+.button-container {
+  width: 100%;
+  min-height: 26vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-item-container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sign-in-button {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: none;
+  background-color: #ede1e7;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,20 +1,36 @@
 import Item from "../Item/Item";
 import "./itemListContainer.css";
-import { products } from "./products";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getItems } from "../../services/ItemService";
+import { getDocs } from "firebase/firestore";
+
+
 
 const ItemListContainer = () => {
   const { categoryId } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
 
-  const filteredProducts = categoryId
-    ? products.filter((item) => item.category === categoryId)
-    : products;
+  useEffect(() => {
+    setLoading(true);
+    const query = getItems(categoryId);
+    getDocs(query).then((querySnapshot) => {
+      setProducts(
+        querySnapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        })
+      );
+      setLoading(false);
+    });
+  }, [categoryId]);
 
   return (
     <div className="item-list-container">
-      {filteredProducts.map((product) => (
-        <Item key={product.id} product={product} />
-      ))}
+      {loading ? <p>Loading Items...</p> :
+        products.map((product) => (
+          <Item key={product.id} product={product} />
+        ))}
     </div>
   );
 };
