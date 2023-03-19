@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../ItemListContainer/products";
 import "./itemdetail.css";
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = () => {
+  const navigate = useNavigate();
+  const { addItem } = useContext(CartContext);
   const { id } = useParams();
   const product = products.find((product) => product.id == id);
+  console.log(product);
 
   const [amountToAdd, setAmountToAdd] = useState(1);
 
@@ -19,10 +24,6 @@ const ItemDetail = () => {
     if (amountToAdd > 1) {
       setAmountToAdd(amountToAdd - 1);
     }
-  };
-
-  const addToCart = () => {
-    setAmountToAdd(1);
   };
 
   return (
@@ -46,8 +47,23 @@ const ItemDetail = () => {
             </button>
           </div>
           <div className="add-button-detail-container">
-            <button className="add-button-detail" onClick={addToCart}>
+            <button
+              className="add-button-detail"
+              onClick={() => navigate("/cart")}
+            >
+              Finalizar compra
+            </button>
+            <button
+              className="add-button-detail"
+              onClick={() => {
+                addItem(product, amountToAdd);
+                setAmountToAdd(1);
+              }}
+            >
               Agregar al carrito
+            </button>
+            <button className="add-button-detail" onClick={() => navigate("/")}>
+              Seguir comprando
             </button>
           </div>
         </div>

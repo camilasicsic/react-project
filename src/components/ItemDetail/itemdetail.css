@@ -78,6 +78,10 @@
   align-items: center;
 }
 
+.cart-item-price {
+  padding-left: 20px;
+}
+
 .add-button-detail-container {
   margin-top: 10px;
   display: flex;
@@ -87,6 +91,8 @@
 
 .add-button-detail {
   margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
   border: none;
   background-color: #c6c5c5;
   border-radius: 5px;
