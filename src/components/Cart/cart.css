@@ -1,0 +1,33 @@
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.cart-title {
+  padding: 20px;
+}
+
+.cart-checkout {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.clear-cart-button {
+  margin-top: 30px;
+  margin-left: 370px;
+  background-color: #c6c5c5;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.cart-total {
+  margin-top: 30px;
+  margin-right: 370px;
+  font-weight: bold;
+}
