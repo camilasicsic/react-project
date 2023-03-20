@@ -1,5 +1,9 @@
 <h3 align="center">Hola 👋, Soy Camila Szyszczyc, y este es mi proyecto con React.</h3>
 
+<p>
+Siguiendo los contenidos del curso de React Js de CoderHouse, cree una App que consiste en un E-Commerce de Makeup y accesorios. Utilicé Hooks como Use State, Use Effect, Use Context. Firebase para el log in, persistir la data de productos y compras en la base de datos. Técnicas de routing para la navegabilidad de la App.
+</p>
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://twitter.com/camilasicsic" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="camilasicsic" height="30" width="40" /></a>
